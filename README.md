@@ -48,9 +48,29 @@ TransparenciaLab Pro es una aplicación web moderna que permite eliminar fondos 
 
 ## 🔧 Configuración del Entorno
 
-1. Copia el archivo `.env.example` a `.env`
-2. Configura las variables de entorno necesarias
-3. Asegúrate de tener las dependencias instaladas
+1. Copia el archivo `task1/js/config.example.js` a `task1/js/config.js`
+2. Obtén una API key de [Remove.bg](https://www.remove.bg/)
+
+### Configuración Local
+3. Crea un archivo `.env` en la raíz del proyecto y añade tu API key:
+   ```
+   REMOVE_BG_API_KEY=tu_api_key_aqui
+   ```
+
+### Configuración en GitHub
+Para configurar la API key en GitHub de forma segura:
+
+1. Ve a tu repositorio en GitHub
+2. Haz clic en "Settings" (Configuración)
+3. En el menú lateral, busca "Secrets and variables" > "Actions"
+4. Haz clic en "New repository secret"
+5. Nombre: `REMOVE_BG_API_KEY`
+6. Valor: Tu API key de Remove.bg
+7. Haz clic en "Add secret"
+
+La API key ahora estará segura y disponible para las GitHub Actions si las utilizas.
+
+⚠️ IMPORTANTE: Nunca compartas o hagas commit de los archivos `config.js` y `.env`
 
 ## 📄 API Documentation
 

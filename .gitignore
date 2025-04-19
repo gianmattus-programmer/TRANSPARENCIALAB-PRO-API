@@ -1,0 +1,19 @@
+# Archivos de configuración con datos sensibles
+task1/js/config.js
+
+# Dependencias
+node_modules/
+.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de log
+*.log
