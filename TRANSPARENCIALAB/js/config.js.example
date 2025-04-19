@@ -1,0 +1,3 @@
+const config = {
+    apiKey: 'tu_api_key_aqui'
+};
