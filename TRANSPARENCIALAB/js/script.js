@@ -61,6 +61,13 @@ function handleFiles(files) {
 }
 
 function processImage(file) {
+    // Validar que tengamos una API key
+    if (!config.apiKey) {
+        alert('Error: No se ha configurado la API key. Por favor, configura la variable de entorno REMOVE_BG_API_KEY en Netlify.');
+        resetAll();
+        return;
+    }
+
     loader.style.display = 'block';
     dropZone.style.display = 'none';
 
@@ -75,7 +82,12 @@ function processImage(file) {
         },
         body: formData
     })
-    .then(response => response.blob())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.blob();
+    })
     .then(blob => {
         const url = URL.createObjectURL(blob);
         imageURL = url;
@@ -84,7 +96,8 @@ function processImage(file) {
         previewContainer.style.display = 'block';
     })
     .catch(error => {
-        alert('Error al procesar la imagen. Por favor, intenta de nuevo.');
+        console.error('Error:', error);
+        alert('Error al procesar la imagen. Por favor, verifica que la API key sea correcta y vuelve a intentar.');
         resetAll();
     });
 }
